@@ -1,0 +1,10 @@
+<h2>Here is the user <%=@user.first_name%></h2>
+<h3>Here are <%=@user.first_name%>'s posts</h3>
+<ul>
+	<% @posts.each do |post| %>
+		<li>
+			<h4><%=link_to post.title, post%></h4>
+			<p><%=post.body%></p>
+		</li>
+	<% end %>
+</ul>

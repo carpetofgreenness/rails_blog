@@ -9,6 +9,9 @@
   </head>
 
   <body>
+  	<%= render "refills/navigation" %>
+  	<h1>Best Blog</h1>
+  	<%= flash[:notice] if flash[:notice]%>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,12 @@
+<%= form_for @post do |f| %>
+	<%= f.label :title, "Title" %>
+	<%= f.text_field :title %>
+
+	<%= f.label :body, "Body" %>
+	<%= f.text_area :body, rows: 5 %>
+
+	<%= f.label :user_id, "User" %>
+	<%= f.number_field :user_id %>
+
+	<%= f.submit %>
+<% end %>

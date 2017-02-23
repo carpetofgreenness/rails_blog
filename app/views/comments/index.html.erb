@@ -1,0 +1,9 @@
+<h2>Here are all of the comments:</h2>
+<ul>
+	<% @comments.each do |comment| %>
+		<%user = User.find(comment.user_id)%>
+		<li>
+			<%=link_to user.first_name, user%>: <%=link_to comment.body, comment%> <%=link_to "edit", edit_comment_path(comment.id)%>
+		</li>
+	<% end %>
+</ul>
