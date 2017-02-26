@@ -1,12 +1,1 @@
-<h2><%=@post.title%></h2>
-<p>by <%=link_to @user.first_name, @user%></p>
-<p><%=@post.body%></p>
-<ul>
-	<%= render "refills/side_image" %>
-	<% @post.comments.each do |comment| %>
-		<% user=User.find(comment.user_id) %>
-		<li>
-			<strong><%=link_to user.first_name, user%>:</strong>  <%=link_to comment.body, comment%>
-		</li>
-	<% end %>
-</ul>
+<%= render "side_image_posts" %>

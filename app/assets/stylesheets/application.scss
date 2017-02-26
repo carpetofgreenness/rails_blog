@@ -1,10 +1,15 @@
 @import "bourbon";
 @import "neat";
+@import "refills/navigation";
+@import "refills/side-image";
+@import "refills/comment";
+@import "refills/hero";
+@import "refills/cards";
+@import "refills/type-system-traditional";
+@import "refills/textures";
 @import "users";
 @import "posts";
 @import "comments";
-@import "refills/navigation";
-@import "refills/side-image"
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

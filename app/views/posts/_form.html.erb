@@ -1,12 +1,12 @@
 <%= form_for @post do |f| %>
-	<%= f.label :title, "Title" %>
+	<h2>New Post</h2>
+	<%= f.label :title, "Title*" %>
+	<br>
 	<%= f.text_field :title %>
-
-	<%= f.label :body, "Body" %>
+	<br>
+	<%= f.label :body, "Body*" %>
+	<br>
 	<%= f.text_area :body, rows: 5 %>
-
-	<%= f.label :user_id, "User" %>
-	<%= f.number_field :user_id %>
 
 	<%= f.submit %>
 <% end %>

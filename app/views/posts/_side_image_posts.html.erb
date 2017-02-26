@@ -1,0 +1,33 @@
+<div class="side-image">
+  <div class="images-wrapper"></div>
+    <article class="side-image-content type-system-traditional">
+      <p class="type"><%=link_to @user.first_name, @user%></p>
+		<% if @post.user == current_user %>
+			<p>
+			<%=link_to "(edit)", edit_post_path(@post.id)%>
+			<%=link_to "(delete)", post_path(@post.id),
+				data: {:confirm  => 'Are you sure?'},
+				:method => :delete %>
+			</p>
+		<% end %>
+      <h1>
+      	<%=@post.title%>
+      </h1>
+      <p class="date"><%=@post.created_at%></p>
+      <p><%=@post.body%></p>
+      <% @post.comments.each do |comment| %>
+      	<% user=User.find(comment.user_id) %>
+		<div class="comment">
+		  <div class="comment-image">
+		    <%=image_tag 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png'%>
+		  </div>
+		  <div class="comment-content">
+		    <h2><%=link_to user.first_name, user%></h2>
+		    <p><%=comment.body%></p>
+		    <p class="date"><%=comment.created_at%></p>
+		  </div>
+		</div>
+      <% end %>
+     </article>
+  </div>
+</div>

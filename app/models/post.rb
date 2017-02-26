@@ -3,4 +3,5 @@ class Post < ApplicationRecord
 	has_many :comments, dependent: :destroy
 
 	validates_inclusion_of :user_id, in: User.all.map(&:id)
+	validates_presence_of :title, :body
 end

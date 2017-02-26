@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 			redirect_to user_path @user
 		else
 			flash[:alert] = "There was a problem saving your account."
-			redirect_to new_user_path
+			render :new
 		end
 	end
 
@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@posts = @user.posts
+		@post = Post.new
 	end
 
 	def update
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
 	    redirect_to @user
 	  else
 	    flash[:notice] = "Sorry, your login didn't work. Try again"
-	    redirect '/'
+	    redirect_to root_path
 	  end
 	end
 
@@ -63,6 +64,6 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:first_name, :last_name, :email, :password)
+		params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password)
 	end # helps prevent mass assignment attack
 end

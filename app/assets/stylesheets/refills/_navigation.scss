@@ -39,7 +39,7 @@ header.navigation {
 
     img {
       max-height: $navigation-height;
-      padding: 0.8em 0;
+      padding: 0;
     }
   }
 
@@ -291,7 +291,7 @@ header.navigation {
 
     float: left;
     padding: 0.85em 0.85em 0.7em 0.6em;
-    width: 60%;
+    // width: 60%;
 
     form {
       position: relative;
@@ -335,11 +335,13 @@ header.navigation {
     @include media($horizontal-bar-mode) {
       display: inline-block;
       position: relative;
-      width: 16em;
+      // width: 40em;
 
       input {
         box-sizing: border-box;
-        display: block;
+        display: inline-block;
+        // float: right;
+        // margin: 0 .5em;
       }
     }
   }

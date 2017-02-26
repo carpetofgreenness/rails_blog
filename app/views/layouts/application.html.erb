@@ -6,11 +6,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href='//fonts.googleapis.com/css?family=Radley:400,400italic' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+
   </head>
 
   <body>
-  	<%= render "refills/navigation" %>
-  	<h1>Best Blog</h1>
+	<% if session[:user_id] %>
+	  	<%= render "refills/navigation" %>
+	<% else %>
+		<%= render "refills/navigation_signed_out" %>
+  	<% end %>
   	<%= flash[:notice] if flash[:notice]%>
     <%= yield %>
   </body>

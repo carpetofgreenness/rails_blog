@@ -1,0 +1,31 @@
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/posts" class="logo">
+      <%=image_tag("beluga-01.PNG")%>
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><%= link_to "Posts", posts_path, class: cp(posts_path) %></li>
+        <li class="nav-link"><%= link_to "Users", users_path, class: cp(users_path) %></li>
+        <li class="nav-link"><%= link_to "Sign Up", new_user_path, class: cp(new_user_path) %></li>
+      </ul>
+    </nav>
+    <div class="navigation-tools">
+      <div class="search-bar">
+<!--         <form role="search">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+          </button>
+        </form> -->
+        <%= form_tag(lookup_path, method: "post") do %>
+          <%= text_field_tag :email, nil, placeholder: "Email", :required => true %>
+          <%= text_field_tag :password, nil, placeholder: "Password", :required => true%>
+
+          <%= submit_tag("Sign-in") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>
