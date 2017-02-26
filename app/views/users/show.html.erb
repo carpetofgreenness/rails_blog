@@ -5,7 +5,13 @@
 	    <%=image_tag("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", class: "hero-logo")%>
 	    <h2><%=@user.first_name%> <%=@user.last_name%></h2>
 	    <p><%=@user.email%></p>
-	  </div>
+		<% if @user == current_user %>
+			<%=link_to "(edit)", edit_user_path(@user.id) %>
+			<%= link_to '(delete)', user_path(@user.id),
+            	data: {:confirm => 'Are you sure you want to delete your account? This cannot be undone.'},
+            	:method => :delete
+            %>
+		<% end %>	  </div>
 	</div>
 	<br>
 	<% if @user == current_user %>
