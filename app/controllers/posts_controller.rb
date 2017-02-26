@@ -9,12 +9,12 @@ class PostsController < ApplicationController
 		# byebug
 		@post = current_user.posts.create(post_params)
 		# @post.user = current_user
-		if @post
+		if @post.save
 			flash[:notice] = "Your post was created successfully."
 			redirect_to post_path @post
 		else
 			flash[:alert] = "There was a problem saving your post."
-			redirect_to new_post_path
+			render :new
 		end
 	end
 
@@ -29,6 +29,7 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 		@user = User.find(@post.user_id)
+		@comment = Comment.new
 	end
 
 	def update

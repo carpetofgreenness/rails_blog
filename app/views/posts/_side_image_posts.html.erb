@@ -28,6 +28,21 @@
 		  </div>
 		</div>
       <% end %>
+      <!-- if signed in, ability to comment -->
+      <% if current_user %>
+      	<div class="comment">
+		  <div class="comment-image">
+		    <%=image_tag 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png'%>
+		  </div>
+		  <div class="comment-content">
+		  	<%= form_for @comment do |f| %>
+		  		<%= f.text_area :body, placeholder: "Comment" %>
+		  		<%= f.hidden_field :post_id, value: @post.id %>
+		  		<br><%= f.submit %>
+		  	<% end %>
+		  </div>
+		</div>
+	  <% end %>
      </article>
   </div>
 </div>

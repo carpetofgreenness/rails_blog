@@ -1,3 +1,11 @@
+<% if @post.errors.full_messages.any? %>
+	<ul>
+		<% @post.errors.full_messages.each do | error_message| %>
+			<li><%= error_message %></li>
+			<br />
+		<% end %>
+	</ul>
+<% end %>
 <%= form_for @post do |f| %>
 	<h2>New Post</h2>
 	<%= f.label :title, "Title*" %>

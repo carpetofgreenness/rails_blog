@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@comment = Comment.create(comment_params)
+		@comment = current_user.comments.create(comment_params)
 		if @comment
 			flash[:notice] = "Your comment was created successfully"
 			redirect_to post_path Post.find(@comment.post_id)

@@ -1,9 +1,4 @@
 <h2>Here are all of the posts:</h2>
-<ul>
-	<% @posts.each do |post| %>
-		<li><%=link_to post.title, post %> by <%=link_to post.user.first_name, post.user %> <%=link_to "(edit)", edit_post_path(post.id)%> <%=link_to "(delete)", post_path(post.id), data: {:confirm  => 'Are you sure?'}, :method => :delete %></li>
-	<% end %>
-</ul>
 <article class="type-system-traditional">
 
 <%=render "postcard"%>
