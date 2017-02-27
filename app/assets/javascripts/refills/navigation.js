@@ -20,12 +20,24 @@ $(window).resize(function() {
 $(document).ready(function() {
   var menuToggle = $("#js-mobile-menu").unbind();
   $("#js-navigation-menu").removeClass("show");
+  $("#js-navigation-menu-right").removeClass("show");
+  $("#js-navigation-menu-loggedout").removeClass("show");
 
   menuToggle.on("click", function(e) {
     e.preventDefault();
     $("#js-navigation-menu").slideToggle(function(){
       if($("#js-navigation-menu").is(":hidden")) {
         $("#js-navigation-menu").removeAttr("style");
+      }
+    });
+    $("#js-navigation-menu-loggedout").slideToggle(function(){
+      if($("#js-navigation-menu-loggedout").is(":hidden")) {
+        $("#js-navigation-menu-loggedout").removeAttr("style");
+      }
+    });
+    $("#js-navigation-menu-right").slideToggle(function(){
+      if($("#js-navigation-menu-right").is(":hidden")) {
+        $("#js-navigation-menu-right").removeAttr("style");
       }
     });
   });

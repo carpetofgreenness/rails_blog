@@ -25,6 +25,7 @@ header.navigation {
   width: 100%;
   z-index: 999;
 
+
   .navigation-wrapper {
     @include clearfix;
     position: relative;
@@ -349,4 +350,16 @@ header.navigation {
 
 .current {
   color: white !important;
+}
+
+header.navigation nav.nav-right {
+  min-height: 0 !important;
+  height: 0 !important;
+}
+
+@media screen and (min-width: 53.75em) {
+  header.navigation nav.nav-right {
+    float: right;
+  }
+  
 }
